@@ -626,9 +626,10 @@ viewItem_ config (Node key title opt children) =
 
         base =
             [ optional (children /= Nothing) <|
-                H.a
+                H.span
                     [ HA.class "toggle"
-                    , HA.href "#"
+
+                    -- , HA.href "#"
                     , onClickEvent (Toggle key)
                     , HA.disabled opt.disabled
                     ]
@@ -637,9 +638,10 @@ viewItem_ config (Node key title opt children) =
                 viewItemCheckbox config.checkbox.multiple config.checkbox.cascade opt.checked key
             , optional (ic /= "") (awesome ic)
             , if opt.selectable then
-                H.a
-                    [ HA.href "#"
-                    , onClickEvent (Select key)
+                H.span
+                    [ --     HA.href "#"
+                      -- ,
+                      onClickEvent (Select key)
                     , HA.disabled opt.disabled
                     ]
                     [ H.text title ]
